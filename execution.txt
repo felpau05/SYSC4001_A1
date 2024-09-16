@@ -1,0 +1,27 @@
+0, 50, CPU execution
+50, 1, switch to kernel mode
+51, 3, context saved
+54, 1, find vector 7 in memory position 14
+55, 1, obtain ISR address
+56, 110, SYSCALL ISR exection
+166, 1, IRET
+167, 1, switch to kernel mode
+168, 1, context saved
+169, 1, find vector 20 in memory position 40
+170, 1, obtain ISR address
+171, 170, END_IO ISR exection
+341, 1, IRET
+342, 100, CPU execution
+442, 1, switch to kernel mode
+443, 2, context saved
+445, 1, find vector 12 in memory position 24
+446, 1, obtain ISR address
+447, 250, SYSCALL ISR exection
+697, 1, IRET
+698, 1, switch to kernel mode
+699, 1, context saved
+700, 1, find vector 22 in memory position 44
+701, 1, obtain ISR address
+702, 328, END_IO ISR exection
+1030, 1, IRET
+1031, 20, CPU execution
