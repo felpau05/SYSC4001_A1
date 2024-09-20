@@ -18,6 +18,9 @@ int main(int argc, char** argv) {
     std::mt19937 rng(rd()); // seed the generator
     std::uniform_int_distribution<> context_time_distr(1, 3); // define the range
 
+    //This keeps track of sensor interrupt calls and display interrupt calls
+    int sensor_display_count = 0;
+
     //parse each line of the input trace file
     while(std::getline(input_file, trace)) {
         //split line by ','
@@ -48,8 +51,64 @@ int main(int argc, char** argv) {
             execution += std::to_string(current_time) + ", " + std::to_string(1) + ", obtain ISR address\n";
             current_time++;
 
-            execution += std::to_string(current_time) + ", " + std::to_string(duration) + ", " + interrupt + " ISR exection\n";
-            current_time += duration;
+            if(sensor_display_count % 4 == 0) { // Sensor SYSCALL
+                std::uniform_int_distribution<> ISR_distr(10, duration); // define the range
+                auto ISR_instruction_1 = ISR_distr(rng); // Random time for the 1st instruction of ISR
+                std::uniform_int_distribution<> ISR_distr_1(10, duration - ISR_instruction_1); // define the range
+                auto ISR_instruction_2 = ISR_distr_1(rng) - 1; // Random time for the 2nd instruction of ISR (-1 so that ISR_instruction_3 is never 0)
+                auto ISR_instruction_3 = duration - (ISR_instruction_1 + ISR_instruction_2); // Random time for the 3rd instruction of ISR
+
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_1) + ", SYSCALL: install device diver\n";
+                current_time += ISR_instruction_1;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_2) + ", check sensor status and get data register pointer\n";
+                current_time += ISR_instruction_2;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_3) + ", start data value stream\n";
+                current_time += ISR_instruction_3;
+
+            } else if (sensor_display_count % 4 == 1) { // Sensor END_IO
+                std::uniform_int_distribution<> ISR_distr(10, duration); // define the range
+                auto ISR_instruction_1 = ISR_distr(rng); // Random time for the 1st instruction of ISR
+                std::uniform_int_distribution<> ISR_distr_1(10, duration - ISR_instruction_1); // define the range
+                auto ISR_instruction_2 = ISR_distr_1(rng) - 1; // Random time for the 2nd instruction of ISR (-1 so that ISR_instruction_3 is never 0)
+                auto ISR_instruction_3 = duration - (ISR_instruction_1 + ISR_instruction_2); // Random time for the 3rd instruction of ISR
+
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_1) + ", END_IO: check sensor status\n";
+                current_time += ISR_instruction_1;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_2) + ", save sensor data stream in memory\n";
+                current_time += ISR_instruction_2;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_3) + ", uninstall device driver\n";
+                current_time += ISR_instruction_3;
+
+            } else if (sensor_display_count % 4 == 2) { // Display SYSCALL
+                std::uniform_int_distribution<> ISR_distr(10, duration); // define the range
+                auto ISR_instruction_1 = ISR_distr(rng); // Random time for the 1st instruction of ISR
+                std::uniform_int_distribution<> ISR_distr_1(10, duration - ISR_instruction_1); // define the range
+                auto ISR_instruction_2 = ISR_distr_1(rng) - 1; // Random time for the 2nd instruction of ISR (-1 so that ISR_instruction_3 is never 0)
+                auto ISR_instruction_3 = duration - (ISR_instruction_1 + ISR_instruction_2); // Random time for the 3rd instruction of ISR
+
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_1) + ", install display driver\n";
+                current_time += ISR_instruction_1;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_2) + ", check display status\n";
+                current_time += ISR_instruction_2;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_3) + ", start streaming data to display\n";
+                current_time += ISR_instruction_3;
+
+            } else if (sensor_display_count % 4 == 3) { // Display END_IO
+                std::uniform_int_distribution<> ISR_distr(10, duration); // define the range
+                auto ISR_instruction_1 = ISR_distr(rng); // Random time for the 1st instruction of ISR
+                std::uniform_int_distribution<> ISR_distr_1(10, duration - ISR_instruction_1); // define the range
+                auto ISR_instruction_2 = ISR_distr_1(rng) - 1; // Random time for the 2nd instruction of ISR (-1 so that ISR_instruction_3 is never 0)
+                auto ISR_instruction_3 = duration - (ISR_instruction_1 + ISR_instruction_2); // Random time for the 3rd instruction of ISR
+
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_1) + ", check display status\n";
+                current_time += ISR_instruction_1;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_2) + ", stop data streaming\n";
+                current_time += ISR_instruction_2;
+                execution += std::to_string(current_time) + ", " + std::to_string(ISR_instruction_3) + ", uninstall display drivers\n";
+                current_time += ISR_instruction_3;
+
+            }
+            sensor_display_count++;
 
             execution += std::to_string(current_time) + ", " + std::to_string(1) + ", IRET\n";
             current_time++;
