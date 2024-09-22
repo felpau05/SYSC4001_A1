@@ -1,2 +1,2 @@
 all:
-	g++ -I . -o interrupts interrupts.cpp
+	g++ -g -O0 -I . -o interrupts interrupts.cpp
