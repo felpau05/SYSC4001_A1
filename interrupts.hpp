@@ -15,25 +15,35 @@
 #define ADDR_BASE   0
 #define VECTOR_SIZE 2
 
-// LCG Class Definition
-class SimpleLCG {
-public:
-    SimpleLCG(uint32_t seed) : current(seed) {}
-
-    // Generate a random number using LCG
-    uint32_t generate() {
-        current = (current * 1664525 + 1013904223) % (1u << 31);
-        return current;
+std::vector<std::string> parse_args(int argc, char** argv) {
+    if(argc != 3) {
+        std::cout << "ERROR!\nExpected 2 argument, received " << argc - 1 << std::endl;
+        std::cout << "To run the program, do: ./interrutps <your_trace_file.txt> <your_vector_table.txt>" << std::endl;
+        exit(1);
     }
 
-    // Get a number in the desired range
-    int get_random(int min, int max) {
-        return min + (generate() % (max - min + 1));
+    std::ifstream input_file;
+    input_file.open(argv[1]);
+    if (!input_file.is_open()) {
+        std::cerr << "Error: Unable to open file: " << argv[1] << std::endl;
+        exit(1);
     }
 
-private:
-    uint32_t current;
-};
+    std::ifstream input_vector_table;
+    input_vector_table.open(argv[2]);
+    if (!input_vector_table.is_open()) {
+        std::cerr << "Error: Unable to open file: " << argv[2] << std::endl;
+        exit(1);
+    }
+
+    std::string vector;
+    std::vector<std::string> vectors;
+    while(std::getline(input_vector_table, vector)) {
+        vectors.push_back(vector);
+    }
+
+    return vectors;
+}
 
 // Following function was taken from stackoverflow; helper function for splitting strings
 std::vector<std::string> split_delim(std::string input, std::string delim) {
@@ -48,6 +58,29 @@ std::vector<std::string> split_delim(std::string input, std::string delim) {
     tokens.push_back(input);
 
     return tokens;
+}
+
+std::tuple<std::string, int, int> parse_trace(std::string trace) {
+    //split line by ','
+    auto parts = split_delim(trace, ",");
+    if (parts.size() < 2) {
+        std::cerr << "Error: Malformed input line: " << trace << std::endl;
+        return {"null", -1, -1};
+    }
+
+    auto activity = parts[0];
+    auto duration = std::stoi(parts[1]);
+    int intr_num = -1;
+    if(activity != "CPU") {
+        auto parts_1 = split_delim(activity, " ");
+        if (parts_1.size() < 2) {
+            std::cerr << "Error: Malformed input line: " << trace << std::endl;
+            return {"null", -1, -1};
+        }
+        intr_num   = std::stoi(parts_1[1]);
+    }
+
+    return {activity, duration, intr_num};
 }
 
 //Default interrupt boilerplate
@@ -75,4 +108,18 @@ std::pair<std::string, int> intr_boilerplate(int current_time, int intr_num, int
     return std::make_pair(execution, current_time);
 }
 
+
+void write_output(std::string execution) {
+    std::ofstream output_file("execution.txt");
+
+    if (output_file.is_open()) {
+        output_file << execution;
+        output_file.close();  // Close the file when done
+        std::cout << "File content overwritten successfully." << std::endl;
+    } else {
+        std::cerr << "Error opening file!" << std::endl;
+    }
+
+    std::cout << "Output generated in execution.txt" << std::endl;
+}
 #endif
