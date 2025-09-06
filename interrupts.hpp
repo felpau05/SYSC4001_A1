@@ -15,6 +15,19 @@
 #define ADDR_BASE   0
 #define VECTOR_SIZE 2
 
+#define CPU_SPEED   100
+#define MEM_LIMIT   1
+
+/**
+ * \brief parse the CLI arguments
+ *
+ * This helper function parses command line arguments and checks for errors 
+ * 
+ * @param argc number of command line arguments
+ * @param argv the command line arguments
+ * @return a vector of strings (the parsed vector table)
+ * 
+ */
 std::vector<std::string> parse_args(int argc, char** argv) {
     if(argc != 3) {
         std::cout << "ERROR!\nExpected 2 argument, received " << argc - 1 << std::endl;

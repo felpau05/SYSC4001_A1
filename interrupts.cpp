@@ -1,3 +1,10 @@
+/**
+ *
+ * @file interrupts.cpp
+ * @author Sasisekhar Govind
+ *
+ */
+
 #include<interrupts.hpp>
 
 int main(int argc, char** argv) {
@@ -5,17 +12,25 @@ int main(int argc, char** argv) {
     auto vectors = parse_args(argc, argv);
     std::ifstream input_file(argv[1]);
 
-    std::string trace;
-    std::string execution;
+    std::string trace;      //!< string to store single line of trace file
+    std::string execution;  //!< string to accumulate the execution output
 
-    int current_time = 0;
+    /******************ADD YOUR VARIABLES HERE*************************/
+
+
+
+    /******************************************************************/
 
     //parse each line of the input trace file
     while(std::getline(input_file, trace)) {
         auto [activity, duration, intr_num] = parse_trace(trace);
 
-        execution += "foo\n";
-        
+        /******************ADD YOUR SIMULATION CODE HERE*************************/
+
+
+
+        /************************************************************************/
+
     }
 
     input_file.close();
