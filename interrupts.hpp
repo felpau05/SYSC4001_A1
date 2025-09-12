@@ -28,10 +28,10 @@
  * @return a vector of strings (the parsed vector table)
  * 
  */
-std::vector<std::string> parse_args(int argc, char** argv) {
-    if(argc != 3) {
+std::tuple<std::vector<std::string>, std::vector<int>> parse_args(int argc, char** argv) {
+    if(argc != 4) {
         std::cout << "ERROR!\nExpected 2 argument, received " << argc - 1 << std::endl;
-        std::cout << "To run the program, do: ./interrutps <your_trace_file.txt> <your_vector_table.txt>" << std::endl;
+        std::cout << "To run the program, do: ./interrutps <your_trace_file.txt> <your_vector_table.txt> <your_device_table.txt>" << std::endl;
         exit(1);
     }
 
@@ -54,8 +54,21 @@ std::vector<std::string> parse_args(int argc, char** argv) {
     while(std::getline(input_vector_table, vector)) {
         vectors.push_back(vector);
     }
+    input_vector_table.close();
 
-    return vectors;
+    std::string duration;
+    std::vector<int> delays;
+    std::ifstream device_table;
+    device_table.open(argv[3]);
+    if (!device_table.is_open()) {
+        std::cerr << "Error: Unable to open file: " << argv[3] << std::endl;
+        exit(1);
+    }
+    while(std::getline(device_table, duration)) {
+        delays.push_back(std::stoi(duration));
+    }
+
+    return {vectors, delays};
 }
 
 // Following function was taken from stackoverflow; helper function for splitting strings
@@ -73,27 +86,18 @@ std::vector<std::string> split_delim(std::string input, std::string delim) {
     return tokens;
 }
 
-std::tuple<std::string, int, int> parse_trace(std::string trace) {
+std::tuple<std::string, int> parse_trace(std::string trace) {
     //split line by ','
     auto parts = split_delim(trace, ",");
     if (parts.size() < 2) {
         std::cerr << "Error: Malformed input line: " << trace << std::endl;
-        return {"null", -1, -1};
+        return {"null", -1};
     }
 
     auto activity = parts[0];
-    auto duration = std::stoi(parts[1]);
-    int intr_num = -1;
-    if(activity != "CPU") {
-        auto parts_1 = split_delim(activity, " ");
-        if (parts_1.size() < 2) {
-            std::cerr << "Error: Malformed input line: " << trace << std::endl;
-            return {"null", -1, -1};
-        }
-        intr_num   = std::stoi(parts_1[1]);
-    }
+    auto duration_intr = std::stoi(parts[1]);
 
-    return {activity, duration, intr_num};
+    return {activity, duration_intr};
 }
 
 //Default interrupt boilerplate
