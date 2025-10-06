@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
         /******************ADD YOUR SIMULATION CODE HERE*************************/
 
         if (activity == "CPU") {
-            // Pure CPU work — just advance time by the duration
+            // Pure CPU work  just advance time by the duration
             emit(val, "CPU burst");
             continue;
         }
@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
                                   " at memory offset " + std::to_string(vec_addr));
             emit(FETCH_ISR_MS,   "fetch ISR entry point");
 
-            // Body time is the remaining portion after fixed overheads
+            // Body   time is the remaining portion after fixed overheads
             const long long fixed_overhead =
                 MODE_SWITCH_MS + CTX_SAVE_MS + VEC_LOOKUP_MS + FETCH_ISR_MS + IRET_MS;
             long long body_ms = device_total - fixed_overhead;
