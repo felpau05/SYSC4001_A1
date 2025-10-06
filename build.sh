@@ -1,6 +1,9 @@
+#!/usr/bin/env bash
+set -e
 if [ ! -d "bin" ]; then
     mkdir bin
 else
-	rm bin/*
+    rm -f bin/*
 fi
-g++ -g -O0 -I . -o bin/interrupts interrupts.cpp
+g++ -g -std=c++17 -O0 -I . -o bin/interrupts interrupts.cpp
+echo "OK"
