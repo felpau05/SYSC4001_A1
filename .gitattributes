@@ -1,0 +1,9 @@
+# Enforce LF line endings for all text files
+* text eol=lf
+
+# Explicitly enforce LF for key file types
+*.sh text eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.txt text eol=lf
+*.md  text eol=lf
