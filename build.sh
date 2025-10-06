@@ -6,4 +6,4 @@ else
     rm -f bin/*
 fi
 g++ -g -std=c++17 -O0 -I . -o bin/interrupts interrupts.cpp
-echo "OK"
+echo "OK."
