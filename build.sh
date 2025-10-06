@@ -5,5 +5,5 @@ if [ ! -d "bin" ]; then
 else
     rm -f bin/*
 fi
-g++ -g -std=c++17 -O0 -I . -o bin/interrupts interrupts.cpp
+g++ -g -std=c++17 -O0 -I . -o bin/interrupts.exe interrupts.cpp
 echo "OK."

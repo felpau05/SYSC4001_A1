@@ -1,0 +1,421 @@
+0, 51, CPU burst
+51, 1, enter kernel mode
+52, 10, save context
+62, 1, locate vector 14 at memory offset 28
+63, 1, fetch ISR entry point
+64, 442, run device driver (system call)
+506, 1, IRET
+507, 39, CPU burst
+546, 1, enter kernel mode
+547, 10, save context
+557, 1, locate vector 14 at memory offset 28
+558, 1, fetch ISR entry point
+559, 442, finalize I/O and update memory (end of interrupt)
+1001, 1, IRET
+1002, 72, CPU burst
+1074, 1, enter kernel mode
+1075, 10, save context
+1085, 1, locate vector 19 at memory offset 38
+1086, 1, fetch ISR entry point
+1087, 638, run device driver (system call)
+1725, 1, IRET
+1726, 28, CPU burst
+1754, 1, enter kernel mode
+1755, 10, save context
+1765, 1, locate vector 19 at memory offset 38
+1766, 1, fetch ISR entry point
+1767, 638, finalize I/O and update memory (end of interrupt)
+2405, 1, IRET
+2406, 32, CPU burst
+2438, 1, enter kernel mode
+2439, 10, save context
+2449, 1, locate vector 7 at memory offset 14
+2450, 1, fetch ISR entry point
+2451, 138, run device driver (system call)
+2589, 1, IRET
+2590, 25, CPU burst
+2615, 1, enter kernel mode
+2616, 10, save context
+2626, 1, locate vector 7 at memory offset 14
+2627, 1, fetch ISR entry point
+2628, 138, finalize I/O and update memory (end of interrupt)
+2766, 1, IRET
+2767, 11, CPU burst
+2778, 1, enter kernel mode
+2779, 10, save context
+2789, 1, locate vector 16 at memory offset 32
+2790, 1, fetch ISR entry point
+2791, 942, run device driver (system call)
+3733, 1, IRET
+3734, 54, CPU burst
+3788, 1, enter kernel mode
+3789, 10, save context
+3799, 1, locate vector 16 at memory offset 32
+3800, 1, fetch ISR entry point
+3801, 942, finalize I/O and update memory (end of interrupt)
+4743, 1, IRET
+4744, 96, CPU burst
+4840, 1, enter kernel mode
+4841, 10, save context
+4851, 1, locate vector 8 at memory offset 16
+4852, 1, fetch ISR entry point
+4853, 986, run device driver (system call)
+5839, 1, IRET
+5840, 54, CPU burst
+5894, 1, enter kernel mode
+5895, 10, save context
+5905, 1, locate vector 8 at memory offset 16
+5906, 1, fetch ISR entry point
+5907, 986, finalize I/O and update memory (end of interrupt)
+6893, 1, IRET
+6894, 77, CPU burst
+6971, 1, enter kernel mode
+6972, 10, save context
+6982, 1, locate vector 11 at memory offset 22
+6983, 1, fetch ISR entry point
+6984, 509, run device driver (system call)
+7493, 1, IRET
+7494, 33, CPU burst
+7527, 1, enter kernel mode
+7528, 10, save context
+7538, 1, locate vector 11 at memory offset 22
+7539, 1, fetch ISR entry point
+7540, 509, finalize I/O and update memory (end of interrupt)
+8049, 1, IRET
+8050, 60, CPU burst
+8110, 1, enter kernel mode
+8111, 10, save context
+8121, 1, locate vector 16 at memory offset 32
+8122, 1, fetch ISR entry point
+8123, 942, run device driver (system call)
+9065, 1, IRET
+9066, 21, CPU burst
+9087, 1, enter kernel mode
+9088, 10, save context
+9098, 1, locate vector 16 at memory offset 32
+9099, 1, fetch ISR entry point
+9100, 942, finalize I/O and update memory (end of interrupt)
+10042, 1, IRET
+10043, 19, CPU burst
+10062, 1, enter kernel mode
+10063, 10, save context
+10073, 1, locate vector 2 at memory offset 4
+10074, 1, fetch ISR entry point
+10075, 136, run device driver (system call)
+10211, 1, IRET
+10212, 26, CPU burst
+10238, 1, enter kernel mode
+10239, 10, save context
+10249, 1, locate vector 2 at memory offset 4
+10250, 1, fetch ISR entry point
+10251, 136, finalize I/O and update memory (end of interrupt)
+10387, 1, IRET
+10388, 38, CPU burst
+10426, 1, enter kernel mode
+10427, 10, save context
+10437, 1, locate vector 16 at memory offset 32
+10438, 1, fetch ISR entry point
+10439, 942, run device driver (system call)
+11381, 1, IRET
+11382, 28, CPU burst
+11410, 1, enter kernel mode
+11411, 10, save context
+11421, 1, locate vector 16 at memory offset 32
+11422, 1, fetch ISR entry point
+11423, 942, finalize I/O and update memory (end of interrupt)
+12365, 1, IRET
+12366, 65, CPU burst
+12431, 1, enter kernel mode
+12432, 10, save context
+12442, 1, locate vector 16 at memory offset 32
+12443, 1, fetch ISR entry point
+12444, 942, run device driver (system call)
+13386, 1, IRET
+13387, 88, CPU burst
+13475, 1, enter kernel mode
+13476, 10, save context
+13486, 1, locate vector 16 at memory offset 32
+13487, 1, fetch ISR entry point
+13488, 942, finalize I/O and update memory (end of interrupt)
+14430, 1, IRET
+14431, 100, CPU burst
+14531, 1, enter kernel mode
+14532, 10, save context
+14542, 1, locate vector 17 at memory offset 34
+14543, 1, fetch ISR entry point
+14544, 221, run device driver (system call)
+14765, 1, IRET
+14766, 28, CPU burst
+14794, 1, enter kernel mode
+14795, 10, save context
+14805, 1, locate vector 17 at memory offset 34
+14806, 1, fetch ISR entry point
+14807, 221, finalize I/O and update memory (end of interrupt)
+15028, 1, IRET
+15029, 25, CPU burst
+15054, 1, enter kernel mode
+15055, 10, save context
+15065, 1, locate vector 1 at memory offset 2
+15066, 1, fetch ISR entry point
+15067, 86, run device driver (system call)
+15153, 1, IRET
+15154, 21, CPU burst
+15175, 1, enter kernel mode
+15176, 10, save context
+15186, 1, locate vector 1 at memory offset 2
+15187, 1, fetch ISR entry point
+15188, 86, finalize I/O and update memory (end of interrupt)
+15274, 1, IRET
+15275, 25, CPU burst
+15300, 1, enter kernel mode
+15301, 10, save context
+15311, 1, locate vector 19 at memory offset 38
+15312, 1, fetch ISR entry point
+15313, 638, run device driver (system call)
+15951, 1, IRET
+15952, 34, CPU burst
+15986, 1, enter kernel mode
+15987, 10, save context
+15997, 1, locate vector 19 at memory offset 38
+15998, 1, fetch ISR entry point
+15999, 638, finalize I/O and update memory (end of interrupt)
+16637, 1, IRET
+16638, 34, CPU burst
+16672, 1, enter kernel mode
+16673, 10, save context
+16683, 1, locate vector 8 at memory offset 16
+16684, 1, fetch ISR entry point
+16685, 986, run device driver (system call)
+17671, 1, IRET
+17672, 59, CPU burst
+17731, 1, enter kernel mode
+17732, 10, save context
+17742, 1, locate vector 8 at memory offset 16
+17743, 1, fetch ISR entry point
+17744, 986, finalize I/O and update memory (end of interrupt)
+18730, 1, IRET
+18731, 44, CPU burst
+18775, 1, enter kernel mode
+18776, 10, save context
+18786, 1, locate vector 15 at memory offset 30
+18787, 1, fetch ISR entry point
+18788, 54, run device driver (system call)
+18842, 1, IRET
+18843, 51, CPU burst
+18894, 1, enter kernel mode
+18895, 10, save context
+18905, 1, locate vector 15 at memory offset 30
+18906, 1, fetch ISR entry point
+18907, 54, finalize I/O and update memory (end of interrupt)
+18961, 1, IRET
+18962, 87, CPU burst
+19049, 1, enter kernel mode
+19050, 10, save context
+19060, 1, locate vector 11 at memory offset 22
+19061, 1, fetch ISR entry point
+19062, 509, run device driver (system call)
+19571, 1, IRET
+19572, 65, CPU burst
+19637, 1, enter kernel mode
+19638, 10, save context
+19648, 1, locate vector 11 at memory offset 22
+19649, 1, fetch ISR entry point
+19650, 509, finalize I/O and update memory (end of interrupt)
+20159, 1, IRET
+20160, 48, CPU burst
+20208, 1, enter kernel mode
+20209, 10, save context
+20219, 1, locate vector 16 at memory offset 32
+20220, 1, fetch ISR entry point
+20221, 942, run device driver (system call)
+21163, 1, IRET
+21164, 51, CPU burst
+21215, 1, enter kernel mode
+21216, 10, save context
+21226, 1, locate vector 16 at memory offset 32
+21227, 1, fetch ISR entry point
+21228, 942, finalize I/O and update memory (end of interrupt)
+22170, 1, IRET
+22171, 37, CPU burst
+22208, 1, enter kernel mode
+22209, 10, save context
+22219, 1, locate vector 1 at memory offset 2
+22220, 1, fetch ISR entry point
+22221, 86, run device driver (system call)
+22307, 1, IRET
+22308, 18, CPU burst
+22326, 1, enter kernel mode
+22327, 10, save context
+22337, 1, locate vector 1 at memory offset 2
+22338, 1, fetch ISR entry point
+22339, 86, finalize I/O and update memory (end of interrupt)
+22425, 1, IRET
+22426, 11, CPU burst
+22437, 1, enter kernel mode
+22438, 10, save context
+22448, 1, locate vector 2 at memory offset 4
+22449, 1, fetch ISR entry point
+22450, 136, run device driver (system call)
+22586, 1, IRET
+22587, 46, CPU burst
+22633, 1, enter kernel mode
+22634, 10, save context
+22644, 1, locate vector 2 at memory offset 4
+22645, 1, fetch ISR entry point
+22646, 136, finalize I/O and update memory (end of interrupt)
+22782, 1, IRET
+22783, 33, CPU burst
+22816, 1, enter kernel mode
+22817, 10, save context
+22827, 1, locate vector 12 at memory offset 24
+22828, 1, fetch ISR entry point
+22829, 131, run device driver (system call)
+22960, 1, IRET
+22961, 75, CPU burst
+23036, 1, enter kernel mode
+23037, 10, save context
+23047, 1, locate vector 12 at memory offset 24
+23048, 1, fetch ISR entry point
+23049, 131, finalize I/O and update memory (end of interrupt)
+23180, 1, IRET
+23181, 88, CPU burst
+23269, 1, enter kernel mode
+23270, 10, save context
+23280, 1, locate vector 18 at memory offset 36
+23281, 1, fetch ISR entry point
+23282, 109, run device driver (system call)
+23391, 1, IRET
+23392, 29, CPU burst
+23421, 1, enter kernel mode
+23422, 10, save context
+23432, 1, locate vector 18 at memory offset 36
+23433, 1, fetch ISR entry point
+23434, 109, finalize I/O and update memory (end of interrupt)
+23543, 1, IRET
+23544, 28, CPU burst
+23572, 1, enter kernel mode
+23573, 10, save context
+23583, 1, locate vector 1 at memory offset 2
+23584, 1, fetch ISR entry point
+23585, 86, run device driver (system call)
+23671, 1, IRET
+23672, 69, CPU burst
+23741, 1, enter kernel mode
+23742, 10, save context
+23752, 1, locate vector 1 at memory offset 2
+23753, 1, fetch ISR entry point
+23754, 86, finalize I/O and update memory (end of interrupt)
+23840, 1, IRET
+23841, 48, CPU burst
+23889, 1, enter kernel mode
+23890, 10, save context
+23900, 1, locate vector 4 at memory offset 8
+23901, 1, fetch ISR entry point
+23902, 236, run device driver (system call)
+24138, 1, IRET
+24139, 36, CPU burst
+24175, 1, enter kernel mode
+24176, 10, save context
+24186, 1, locate vector 4 at memory offset 8
+24187, 1, fetch ISR entry point
+24188, 236, finalize I/O and update memory (end of interrupt)
+24424, 1, IRET
+24425, 99, CPU burst
+24524, 1, enter kernel mode
+24525, 10, save context
+24535, 1, locate vector 18 at memory offset 36
+24536, 1, fetch ISR entry point
+24537, 109, run device driver (system call)
+24646, 1, IRET
+24647, 56, CPU burst
+24703, 1, enter kernel mode
+24704, 10, save context
+24714, 1, locate vector 18 at memory offset 36
+24715, 1, fetch ISR entry point
+24716, 109, finalize I/O and update memory (end of interrupt)
+24825, 1, IRET
+24826, 61, CPU burst
+24887, 1, enter kernel mode
+24888, 10, save context
+24898, 1, locate vector 16 at memory offset 32
+24899, 1, fetch ISR entry point
+24900, 942, run device driver (system call)
+25842, 1, IRET
+25843, 35, CPU burst
+25878, 1, enter kernel mode
+25879, 10, save context
+25889, 1, locate vector 16 at memory offset 32
+25890, 1, fetch ISR entry point
+25891, 942, finalize I/O and update memory (end of interrupt)
+26833, 1, IRET
+26834, 54, CPU burst
+26888, 1, enter kernel mode
+26889, 10, save context
+26899, 1, locate vector 10 at memory offset 20
+26900, 1, fetch ISR entry point
+26901, 550, run device driver (system call)
+27451, 1, IRET
+27452, 83, CPU burst
+27535, 1, enter kernel mode
+27536, 10, save context
+27546, 1, locate vector 10 at memory offset 20
+27547, 1, fetch ISR entry point
+27548, 550, finalize I/O and update memory (end of interrupt)
+28098, 1, IRET
+28099, 51, CPU burst
+28150, 1, enter kernel mode
+28151, 10, save context
+28161, 1, locate vector 11 at memory offset 22
+28162, 1, fetch ISR entry point
+28163, 509, run device driver (system call)
+28672, 1, IRET
+28673, 85, CPU burst
+28758, 1, enter kernel mode
+28759, 10, save context
+28769, 1, locate vector 11 at memory offset 22
+28770, 1, fetch ISR entry point
+28771, 509, finalize I/O and update memory (end of interrupt)
+29280, 1, IRET
+29281, 48, CPU burst
+29329, 1, enter kernel mode
+29330, 10, save context
+29340, 1, locate vector 6 at memory offset 12
+29341, 1, fetch ISR entry point
+29342, 251, run device driver (system call)
+29593, 1, IRET
+29594, 58, CPU burst
+29652, 1, enter kernel mode
+29653, 10, save context
+29663, 1, locate vector 6 at memory offset 12
+29664, 1, fetch ISR entry point
+29665, 251, finalize I/O and update memory (end of interrupt)
+29916, 1, IRET
+29917, 21, CPU burst
+29938, 1, enter kernel mode
+29939, 10, save context
+29949, 1, locate vector 5 at memory offset 10
+29950, 1, fetch ISR entry point
+29951, 197, run device driver (system call)
+30148, 1, IRET
+30149, 62, CPU burst
+30211, 1, enter kernel mode
+30212, 10, save context
+30222, 1, locate vector 5 at memory offset 10
+30223, 1, fetch ISR entry point
+30224, 197, finalize I/O and update memory (end of interrupt)
+30421, 1, IRET
+30422, 41, CPU burst
+30463, 1, enter kernel mode
+30464, 10, save context
+30474, 1, locate vector 4 at memory offset 8
+30475, 1, fetch ISR entry point
+30476, 236, run device driver (system call)
+30712, 1, IRET
+30713, 48, CPU burst
+30761, 1, enter kernel mode
+30762, 10, save context
+30772, 1, locate vector 4 at memory offset 8
+30773, 1, fetch ISR entry point
+30774, 236, finalize I/O and update memory (end of interrupt)
+31010, 1, IRET
+31011, 63, CPU burst
